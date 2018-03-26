@@ -56,17 +56,17 @@ if __name__ == '__main__':
         if k == 27:
             break
         elif index >= 30:  # Take 30 face sample and stop video
-            break
+            print("ok")
+            # break
 
         cv2.putText(img, "FPS : " + str(int(sfps)), (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 
 
 
         # Calculate and show the FPS
-        fps = fps + 1
-        sfps = fps / (time.time() - t_start)
-        print(sfps,fps)
-        print()
+        # fps = fps + 1
+        # sfps = fps / (time.time() - t_start)
+        # print(sfps,fps)
 
 
     # Do a bit of cleanup
