@@ -42,10 +42,10 @@ if __name__ == '__main__':
     index = 0
     count = 0
     while (True):
-        #获取图像数据
+        #get the images data
         ret, img = cam.read()
 
-        #跳帧，跳了5帧
+        #skip the p
         if count%5==0:
             faces, gray= get_faces(img)
         count = (count+1)%5
