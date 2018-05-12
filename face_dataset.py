@@ -7,7 +7,7 @@ cam.set(3, 640)  # set video width
 cam.set(4, 480)  # set video height
 
 global index
-face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_detector = cv2.CascadeClassifier(os.getcwd()+'/haarcascade_frontalface_default.xml')
 
 # For each person, enter one numeric face id
 
@@ -34,7 +34,7 @@ def draw_frame( img, faces, gray):
         cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
         index += 1
         # Save the captured image into the datasets folder
-        cv2.imwrite("dataset/User." + str(face_id) + '.' + str(index) + ".jpg", gray[y:y + h, x:x + w])
+        cv2.imwrite(os.getcwd() + "/dataset/User." + str(face_id) + '.' + str(index) + ".jpg", gray[y:y + h, x:x + w])
     cv2.imshow('image', img)
 
 if __name__ == '__main__':

@@ -13,9 +13,9 @@ import numpy as np
 import os
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read('trainer/trainer.yml')
-cascadePath = "haarcascade_frontalface_default.xml"
-faceCascade = cv2.CascadeClassifier(cascadePath);
+recognizer.read(os.getcwd()+'/trainer/trainer.yml')
+cascadePath = os.getcwd()+'/haarcascade_frontalface_default.xml'
+faceCascade = cv2.CascadeClassifier(cascadePath)
 
 font = cv2.FONT_HERSHEY_SIMPLEX
 
@@ -61,7 +61,7 @@ def draw_frame(img, faces, gray):
         cv2.putText(img, str(id), (x + 5, y - 5), font, 1, (255, 255, 255), 2)
         cv2.putText(img, str(confidence), (x + 5, y + h - 5), font, 1, (255, 255, 0), 1)
         # cv2.imshow('camera', img)
-        return str(id), str(confidence), img;
+        return str(id)
 
 if __name__ == '__main__':
     count = 0
@@ -81,6 +81,6 @@ if __name__ == '__main__':
             break
 
     # Do a bit of cleanup
-    print("\n [INFO] Exiting Program and cleanup stuff")
+    #print("\n [INFO] Exiting Program and cleanup stuff")
     cam.release()
     cv2.destroyAllWindows()
